@@ -3,7 +3,7 @@ port="1$(cat /dev/urandom | tr -dc '0-9' | fold -w 4 | head -n 1)"
 log="$(cat /dev/urandom | tr -dc 'a-z' | fold -w 3 | head -n 1)$(cat /dev/urandom | tr -dc '0-9' | fold -w 3 | head -n 1)"
 pass="$(cat /dev/urandom | tr -dc 'a-z' | fold -w 3 | head -n 1)$(cat /dev/urandom | tr -dc '0-9' | fold -w 3 | head -n 1)"
 ip=$(curl ipinfo.io/json | grep -oP '(?<="ip": ")[^"]*')
-channel_id=$(awk '/channel_id:/ {print $NF}' config);
+channel_id=$(awk '/proxy_channel_id:/ {print $NF}' config);
 tg_bot_token=$(awk '/tg_bot_token:/ {print $NF}' config);
 proxy_name=$(awk '/proxy_name:/ {print $NF}' config);
 
