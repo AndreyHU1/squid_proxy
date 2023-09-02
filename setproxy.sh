@@ -7,6 +7,7 @@ channel_id=$(awk '/channel_id:/ {print $NF}' config);
 tg_bot_token=$(awk '/tg_bot_token:/ {print $NF}' config);
 proxy_name=$(awk '/proxy_name:/ {print $NF}' config);
 
+sudo apt update -y
 sudo apt install squid apache2-utils -y
 sudo curl -o /etc/squid/squid.conf https://raw.githubusercontent.com/AndreyHU1/squid_proxy/main/squid.conf
 sed -i s/"http_port 18763"/"http_port $port"/ /etc/squid/squid.conf
